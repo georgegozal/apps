@@ -13,7 +13,8 @@ url=input('Enter file url/name: ')
 
 def converter(enlst,kalst,url):
 
-    #import docx library for docx file read 
+    # install python-docx 
+    #import docx library for .docx file read 
     import docx
     #read file
     file = docx.Document(url)
