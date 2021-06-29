@@ -9,6 +9,14 @@ who used it in his private correspondence.
 """
 #url:  https://en.wikipedia.org/wiki/Caesar_cipher
 
+
+print('\nThis is Caesar shift.\n')
+try:
+    interval=int(input("შეიყვანეთ სასურველი ინტერვალი(ნაგულისხმევი არის 3): \nInput desired interval(default is 3):\n>>> "))
+except:
+    interval=3
+
+
 while True:
 
     import clipboard as clp
@@ -20,31 +28,32 @@ while True:
     ka_alfa="აბგდევზთიკლმნოპჟრსტუფქღყშჩცძწჭხჯჰ"
     ka_alfa *= 3
 
-    answer=input('This is Caesar shift.\n\nChoose a tool: \n1. Decode\n2. Encode \nanswer: ')
 
-    def enjob(en,text,x):
+    answer=input('\nChoose a tool: \n1. Decode\n2. Encode \nanswer: ')
+
+    def enjob(en,text,x, ntl):
         changed=""
         for let in text:
             if let in en[26:]:
                 idx=en[26:].index(let)
                 if x=="plus":
-                    changed+= en[idx+3]
+                    changed+= en[idx+ntl]
                 elif x=="minus":
-                    changed+= en[idx-3]    
+                    changed+= en[idx-ntl]    
             else:
                 changed+=let
 
         return changed
 
-    def kajob(ka,text,x):
+    def kajob(ka,text,x,ntl):
         changed=""
         for let in text:
             if let in ka[33:]:
                 idx=ka[33:].index(let)
                 if x=="plus":
-                    changed+= ka[idx+3]
+                    changed+= ka[idx+ntl]
                 elif x=="minus":
-                    changed+=ka[idx-3]    
+                    changed+=ka[idx-ntl]    
             else:
                 changed+=let
 
@@ -56,10 +65,10 @@ while True:
         my_text = input("შეიყვანეთ სასურველი ტექსტი, input text: \n")
         for let in my_text:
             if let in en:
-                changed += enjob(en,my_text,"plus")
+                changed += enjob(en,my_text,"plus",interval)
                 break
             elif let in ka:
-                changed += kajob(ka,my_text,"plus")    
+                changed += kajob(ka,my_text,"plus",interval)    
                 break
         clp.copy(str(changed))    
         return changed
@@ -71,10 +80,10 @@ while True:
         my_text = input("შეიყვანეთ სასურველი ტექსტი, input text: \n")
         for let in my_text:
             if let in en:
-                changed += enjob(en,my_text,"minus")
+                changed += enjob(en,my_text,"minus",interval)
                 break
             elif let in ka:
-                changed += kajob(ka,my_text,"minus")    
+                changed += kajob(ka,my_text,"minus",interval)    
                 break
         clp.copy(str(changed)) 
         return changed
