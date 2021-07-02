@@ -19,7 +19,7 @@ except:
 
 while True:
 
-    import clipboard as clp
+    import pyperclip as clp
     import string
     # abcdefghijklmnopqrstuvwxyz
     en_alfa = string.ascii_lowercase 
