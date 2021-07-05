@@ -23,6 +23,8 @@ def converter(enlst,kalst,url):
         #text_list.append(paragraph.text)
         for i in paragraph.text:
             text+=i
+        text +="\n"
+
 
     #variable for converted text
     converted=''
