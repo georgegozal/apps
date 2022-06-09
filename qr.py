@@ -1,5 +1,5 @@
 import pyqrcode
-import png
+import png #pypng
 from pyqrcode import QRCode
 
 QRstring = input("write what you want to qr: ")
